@@ -1,0 +1,164 @@
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Portada inicial */
+#menu-principal {
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-image: url('/img/background.png'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Fija el fondo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+#menu-principal .titulo h1 {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente original */
+    font-size: 6rem; /* Tamaño grande */
+    margin: 0;
+    text-transform: uppercase; /* Convierte todo a mayúsculas */
+    color: white; /* Texto en blanco */
+    text-align: center;
+}
+#menu-principal .titulo p {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 2.5rem; /* Aumenta el tamaño del subtítulo */
+    margin-top: 0px;
+    color: white;
+    text-align: center;
+}
+
+
+
+/* Sección de juegos */
+#juegos-lista {
+    background-color: black; /* Fondo negro */
+    padding: 20px 20px; /* Espaciado interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Distribuye las imágenes de forma equilibrada */
+    align-items: center; /* Centra verticalmente los elementos */
+    gap: 80px; /* Espacio entre las imágenes */
+    max-width: 80%; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centra horizontalmente el contenedor */
+}
+
+    
+    
+.juegos-titulo {
+    font-size: 2.5rem; /* Tamaño del texto */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente */
+    text-align: justify; /* Centra el texto */
+    line-height: 1.2; /* Ajusta el espacio entre "JUEGOS" y "DISPONIBLES" */
+    margin-bottom: 30px; /* Espaciado entre el título y las imágenes */
+    color: white; /* Color del texto */
+}
+
+    
+.juego-item {
+    text-align: center;
+    max-width: 300px; /* Ancho máximo para los juegos */
+}
+
+.juego-item img {
+    width: 442px; /* Aumenta el tamaño de los PNG */
+    height: auto; /* Mantiene proporciones */
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+    border-radius: 0; /* Sin bordes redondeados */
+}
+
+.juego-item a {
+    text-decoration: none; /* Sin subrayado en los links */
+    color: white; /* Texto en blanco */
+}
+
+
+.juego-item p {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Ajustes del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto; /* Reduce el espacio externo */
+    padding: 20px; /* Espacio interno más ajustado */
+    border-radius: 10px;
+    width: 60%; /* Ajusta el ancho de la ventana */
+    color: black;
+    text-align: justify; /* Justifica el texto */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para destacar */
+}
+
+.modal-content h2 {
+    text-align: center; /* Centra el título */
+    font-size: 1.8rem; /* Tamaño más elegante */
+    margin-bottom: 20px; /* Espacio bajo el título */
+}
+
+.modal-content p {
+    line-height: 1.4; /* Reduce el interlineado */
+    margin-bottom: 10px; /* Menos espacio entre párrafos */
+}
+
+.modal-content a {
+    color: blue;
+    text-decoration: underline; /* Mantiene enlaces destacados */
+    font-weight: bold; /* Hace los enlaces más visibles */
+}
+.align-right {
+    text-align: right; /* Alinea el texto a la derecha */
+    margin: 0; /* Elimina márgenes extras */
+    padding-right: 10px; /* Opcional: agrega un pequeño espacio a la derecha */
+}
+
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}.mode-button {
+    font-size: 1.1rem; /* Aumenta el tamaño de fuente del botón */
+    padding: 12px 24px; /* Ajusta el espaciado interno */
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mode-button:hover {
+    background-color: #ccc;
+}
+
