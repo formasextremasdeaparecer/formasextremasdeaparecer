@@ -29,7 +29,7 @@ document.getElementById('modo-hilo').addEventListener('click', () => {
         videoElement.style.margin = '20px 40px'; // Espaciado hacia la izquierda
 
         textElement.textContent = video.realizador;
-        textElement.style.textAlign = 'right';
+        textElement.style.textAlign = 'left';
         textElement.style.marginRight = '1026.6px'; // Controlar la distancia de alineación hacia la derecha
         textElement.style.marginTop = '-10px'; // Reducir la distancia hacia arriba
         textElement.style.fontSize = '14px'; // Tamaño de letra ajustado
