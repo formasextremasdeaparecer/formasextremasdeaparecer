@@ -10,7 +10,7 @@ body {
 /* Portada inicial */
 #menu-principal {
     height: 100vh; /* Ocupa toda la altura de la pantalla */
-    background-image: url('/img/background.png'); /* Imagen de fondo */
+    background-image: url('background.png'); /* Imagen de fondo */
     background-size: cover; /* Asegura que la imagen cubra todo */
     background-position: center; /* Centra la imagen */
     background-attachment: fixed; /* Fija el fondo */
@@ -38,36 +38,30 @@ body {
     text-align: center;
 }
 
-
-
 /* Sección de juegos */
 #juegos-lista {
     background-color: black; /* Fondo negro */
     padding: 20px 20px; /* Espaciado interno */
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly; /* Distribuye las imágenes de forma equilibrada */
-    align-items: center; /* Centra verticalmente los elementos */
-    gap: 80px; /* Espacio entre las imágenes */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    gap: 30px; /* Espacio entre los elementos */
     max-width: 80%; /* Limita el ancho máximo */
     margin: 0 auto; /* Centra horizontalmente el contenedor */
 }
 
-    
-    
 .juegos-titulo {
     font-size: 2.5rem; /* Tamaño del texto */
     font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente */
-    text-align: justify; /* Centra el texto */
+    text-align: center; /* Centra el texto */
     line-height: 1.2; /* Ajusta el espacio entre "JUEGOS" y "DISPONIBLES" */
     margin-bottom: 30px; /* Espaciado entre el título y las imágenes */
     color: white; /* Color del texto */
 }
 
-    
 .juego-item {
     text-align: center;
-    max-width: 300px; /* Ancho máximo para los juegos */
 }
 
 .juego-item img {
@@ -75,13 +69,14 @@ body {
     height: auto; /* Mantiene proporciones */
     margin-bottom: 10px; /* Espacio entre la imagen y el texto */
     border-radius: 0; /* Sin bordes redondeados */
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
 }
 
 .juego-item a {
     text-decoration: none; /* Sin subrayado en los links */
     color: white; /* Texto en blanco */
 }
-
 
 .juego-item p {
     margin: 0;
@@ -128,13 +123,12 @@ body {
     text-decoration: underline; /* Mantiene enlaces destacados */
     font-weight: bold; /* Hace los enlaces más visibles */
 }
+
 .align-right {
     text-align: right; /* Alinea el texto a la derecha */
     margin: 0; /* Elimina márgenes extras */
     padding-right: 10px; /* Opcional: agrega un pequeño espacio a la derecha */
 }
-
-
 
 .close {
     color: #aaa;
@@ -148,7 +142,9 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}.mode-button {
+}
+
+.mode-button {
     font-size: 1.1rem; /* Aumenta el tamaño de fuente del botón */
     padding: 12px 24px; /* Ajusta el espaciado interno */
     color: black;
@@ -161,4 +157,3 @@ body {
 .mode-button:hover {
     background-color: #ccc;
 }
-
