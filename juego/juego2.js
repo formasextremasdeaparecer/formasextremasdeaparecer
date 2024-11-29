@@ -62,7 +62,7 @@ document.getElementById('modo-expandido').addEventListener('click', () => {
 
     videos.forEach(video => {
         const videoElement = document.createElement('video');
-        videoElement.src = `juego1/${video.src}`;
+        videoElement.src = `juego2/${video.src}`;
         videoElement.controls = false;
         videoElement.muted = false; // Audio activado
         videoElement.autoplay = false;
