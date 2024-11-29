@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(0, 0, 0);
-    color: rgb(0, 0, 0); /* Color global del texto */
+    color: white; /* Color global del texto */
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -12,6 +12,11 @@ body {
     color: white; /* Cambia a blanco */
     font-size: 2.5rem; /* Ajusta el tamaño si es necesario */
     margin-top: 20px; /* Espaciado superior */
+    margin-left: 40px;
+}
+
+#modo-hilo{
+    margin-left: 40px;
 }
 
 /* Portada inicial */
@@ -119,6 +124,7 @@ body {
     text-align: center; /* Centra el título */
     font-size: 1.8rem; /* Tamaño más elegante */
     margin-bottom: 20px; /* Espacio bajo el título */
+    color: white;
 }
 
 .modal-content p {
@@ -145,6 +151,7 @@ body {
     font-weight: bold;
 }
 
+
 .close:hover,
 .close:focus {
     color: black;
@@ -164,4 +171,61 @@ body {
 
 .mode-button:hover {
     background-color: #ccc;
+}
+
+
+
+/* Estilo para el h2 en el Modo Hilo */
+#container h2 {
+    color: white; /* Cambia el color del texto a blanco */
+    margin-left: 40px; /* Margen a la izquierda de 40px */
+}
+
+/* Estilo para el h2 y el contenido en el Modo Expandido */
+#expandido h2 {
+    color: white; /* Cambia el color del texto a blanco */
+    margin-left: 40px; /* Margen a la izquierda de 40px */
+}
+
+#expandido ul {
+    color: white; /* Cambia el color del texto de la lista a blanco */
+    margin-left: 40px; /* Margen a la izquierda de 40px */
+    padding-left: 20px; /* Opcional: Ajusta el sangrado adicional de la lista */
+}
+
+#expandido li {
+    margin-left: 40px; /* Margen a la izquierda para los elementos de la lista */
+    margin-bottom: 10px; /* Espaciado entre los elementos de la lista (opcional) */
+}
+
+#expandido p {
+    margin-left:40px;
+}
+
+#container p {
+    margin-left:40px;
+}
+
+
+#expandido {
+    position: relative;
+    width: 3000px;
+    height: 3000px;
+}
+
+#expandido video {
+    position: absolute;
+    display: block;
+    border: 1px solid white;
+}
+
+.mode-button {
+    font-size: 12px; /* Tamaño de la fuente más pequeño */
+    padding: 5px 10px; /* Menos espacio interno (padding) */
+    height: auto; /* Permite ajustar la altura automáticamente */
+    width: auto; /* Ajusta el ancho automáticamente */
+    border-radius: 5px; /* Opcional: bordes redondeados */
+    border: 1px solid #ccc; /* Borde fino */
+    background-color: #f8f8f8; /* Color de fondo */
+    cursor: pointer;
 }

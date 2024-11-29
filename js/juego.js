@@ -67,39 +67,50 @@ document.getElementById('modo-expandido').addEventListener('click', () => {
                     <li>1. Sofía Casarino</li>
                     <li>2. Bruno Alvarez</li>
                     <li>3. Patricio Martínez</li>
-                    <li>4. Jo Céspedes y Sofía Benito</li>
+                    <li>4. Jo Céspedes</li>
+                    <li>5. Emiliano Urbina</li>
+                    <li>6. Vicente Meza</li>
                 </ul>
             </div>
         </div>
     `;
 
     const expandido = document.getElementById('expandido');
-    const usedPositions = []; // Para evitar superposición
+    const usedPositions = [];
+    const margin = 100; // Margen mínimo desde los bordes
+    const areaWidth = 3000; // Ancho total del área
+    const areaHeight = 3000; // Alto total del área
 
     videos.forEach(video => {
         const videoElement = document.createElement('video');
-        videoElement.src = `/juego${idJuego}/${video.src}`;
+        videoElement.src = `juego2/${video.src}`;
         videoElement.controls = false;
-        videoElement.muted = false; // Audio activado
+        videoElement.muted = false;
         videoElement.autoplay = false;
-        videoElement.loop = true; // Reproduce en bucle
+        videoElement.loop = true;
         videoElement.style.position = 'absolute';
-        videoElement.style.height = '200px';
+        videoElement.style.height = '200px'; // Fija la altura
+        videoElement.style.width = 'auto'; // Ajusta el ancho automáticamente
+        videoElement.style.objectFit = 'contain'; // Asegura que el video no se recorte
         videoElement.style.border = '1px solid white';
-        videoElement.style.borderRadius = '8px';
+        videoElement.style.borderRadius = '0';
 
-        let x, y, isOverlapping;
+        let x, y, isOverlapping, isInBounds;
 
-        // Asegurarnos de que no se superpongan en un área más pequeña
         do {
-            x = Math.random() * 2500; // Área más compacta
-            y = Math.random() * 2500;
+            x = Math.random() * (areaWidth - 2 * margin - 201) + margin; // Ajuste dinámico
+            y = Math.random() * (areaHeight - 2 * margin - 201) + margin;
+
+            // Validar si está dentro de los límites del contenedor
+            isInBounds = x >= margin && x + 200 <= areaWidth - margin;
+
+            // Verificar si se superpone con otros elementos
             isOverlapping = usedPositions.some(pos => {
                 return Math.abs(pos.x - x) < 220 && Math.abs(pos.y - y) < 220;
             });
-        } while (isOverlapping);
+        } while (!isInBounds || isOverlapping);
 
-        usedPositions.push({ x, y }); // Guardamos la posición usada
+        usedPositions.push({ x, y });
 
         videoElement.style.left = `${x}px`;
         videoElement.style.top = `${y}px`;
@@ -112,11 +123,11 @@ document.getElementById('modo-expandido').addEventListener('click', () => {
         (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.play(); // Reproduce cuando aparece
+                    entry.target.play();
                 }
             });
         },
-        { threshold: 1.0 } // Solo activa si el video está completamente visible
+        { threshold: 1.0 }
     );
 
     // Añadir el observador a cada video
@@ -141,21 +152,18 @@ document.getElementById('modo-expandido').addEventListener('click', () => {
                 Math.pow(centerY - videoCenterY, 2)
             );
 
-            // Ajustar volumen en función de la distancia
             const maxDistance = Math.sqrt(
                 Math.pow(window.innerWidth, 2) +
                 Math.pow(window.innerHeight, 2)
             );
 
-            const volume = Math.max(0, 1 - distance / maxDistance); // Entre 0 y 1
+            const volume = Math.max(0, 1 - distance / maxDistance);
             video.volume = volume;
         });
     };
 
-    // Escuchar eventos de scroll y resize para ajustar el volumen dinámico
     window.addEventListener('scroll', adjustVolume);
     window.addEventListener('resize', adjustVolume);
 
-    // Ajustar volumen inicial
     adjustVolume();
 });

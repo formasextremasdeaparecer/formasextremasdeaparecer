@@ -4,11 +4,10 @@ const videos = [
     { src: '1. SOFIA CASARINO - ENCUADRAR UNA MULTITUD.mp4', realizador: 'Sofía Casarino' },
     { src: '2. Bruno Alvarez - Encuadrar Una Multitud.mp4', realizador: 'Bruno Alvarez' },
     { src: '3. PATRICIO MARTINEZ - ENCUADRAR UNA MULTITUD.mp4', realizador: 'Patricio Martínez' },
-    { src: '4. Jo Cespedes - Encuadrar Una Multitud.mp4', realizador: 'Jo Céspedes y Sofía Benito' },
-    { src: '5. ANÓNIMO 1 - ENCUADRAR UNA MULTITUD.MOV', realizador: 'Anónimo'},
-    { src: '6. Anónimo 2 - Encuadrar Una Multitud.mp4', realizador: 'Anónimo'},
+    { src: '4. Jo Cespedes - Encuadrar Una Multitud.mp4', realizador: 'Jo Céspedes' },
+    { src: '5. ANÓNIMO 1 - ENCUADRAR UNA MULTITUD.MOV', realizador: 'Emiliano Urbina'},
+    { src: '6. Anónimo 2 - Encuadrar Una Multitud.mp4', realizador: 'Vicente Meza'},
 ];
-
 
 // Establecer el título dinámico en el HTML
 document.getElementById('titulo-juego').textContent = tituloJuego;
@@ -31,13 +30,16 @@ document.getElementById('modo-hilo').addEventListener('click', () => {
         videoElement.style.margin = '20px 40px'; // Espaciado hacia la izquierda
 
         textElement.textContent = video.realizador;
-        textElement.style.textAlign = 'left';
-        textElement.style.marginLeft = '40px';
+        textElement.style.textAlign = 'right';
+        textElement.style.marginRight = '1026.6px'; // Controlar la distancia de alineación hacia la derecha
+        textElement.style.marginTop = '-10px'; // Reducir la distancia hacia arriba
+        textElement.style.fontSize = '14px'; // Tamaño de letra ajustado
 
         container.appendChild(videoElement);
         container.appendChild(textElement);
     });
 });
+
 
 // Modo Expandido
 document.getElementById('modo-expandido').addEventListener('click', () => {
@@ -51,7 +53,9 @@ document.getElementById('modo-expandido').addEventListener('click', () => {
                     <li>1. Sofía Casarino</li>
                     <li>2. Bruno Alvarez</li>
                     <li>3. Patricio Martínez</li>
-                    <li>4. Jo Céspedes y Sofía Benito</li>
+                    <li>4. Jo Céspedes</li>
+                    <li>5. Emiliano Urbina</li>
+                    <li>6. Vicente Meza</li>
                 </ul>
             </div>
         </div>
@@ -59,10 +63,21 @@ document.getElementById('modo-expandido').addEventListener('click', () => {
 
     const expandido = document.getElementById('expandido');
     const usedPositions = []; // Para evitar superposición
+    const margin = 100; // Margen mínimo desde los bordes
+    const areaWidth = 3000; // Ancho total del área
+    const areaHeight = 3000; // Alto total del área
+
+    // Define la zona de exclusión
+    const exclusionZone = {
+        x: 0, // Posición X inicial
+        y: 0, // Posición Y inicial
+        width: 500, // Ancho del área de exclusión
+        height: 400 // Altura del área de exclusión
+    };
 
     videos.forEach(video => {
         const videoElement = document.createElement('video');
-        videoElement.src = `juego1/${video.src}`;
+        videoElement.src = `juego2/${video.src}`;
         videoElement.controls = false;
         videoElement.muted = false; // Audio activado
         videoElement.autoplay = false;
@@ -70,18 +85,31 @@ document.getElementById('modo-expandido').addEventListener('click', () => {
         videoElement.style.position = 'absolute';
         videoElement.style.height = '200px';
         videoElement.style.border = '1px solid white';
-        videoElement.style.borderRadius = '8px';
+        videoElement.style.borderRadius = '0'; // Esquinas cuadradas
 
-        let x, y, isOverlapping;
+        let x, y, isOverlapping, isInExclusionZone;
 
-        // Asegurarnos de que no se superpongan en un área más pequeña
         do {
-            x = Math.random() * 2500; // Área más compacta
-            y = Math.random() * 2500;
+            // Ajustar las coordenadas para incluir el margen y evitar las orillas
+            x = Math.random() * (areaWidth - 2 * margin - 201) + margin; // 200 es el ancho del video
+            y = Math.random() * (areaHeight - 2 * margin - 201) + margin; // 200 es la altura del video
+        
+            // Verificar si está en la zona de exclusión
+            isInExclusionZone = (
+                x >= exclusionZone.x &&
+                x <= exclusionZone.x + exclusionZone.width &&
+                y >= exclusionZone.y &&
+                y <= exclusionZone.y + exclusionZone.height
+            );
+        
+            // Verificar si está superponiéndose con otros videos
             isOverlapping = usedPositions.some(pos => {
                 return Math.abs(pos.x - x) < 220 && Math.abs(pos.y - y) < 220;
             });
-        } while (isOverlapping);
+        
+        } while (isOverlapping || isInExclusionZone); // Repetir si se superpone o está en la zona de exclusión
+        
+        
 
         usedPositions.push({ x, y }); // Guardamos la posición usada
 
@@ -143,3 +171,8 @@ document.getElementById('modo-expandido').addEventListener('click', () => {
     // Ajustar volumen inicial
     adjustVolume();
 });
+
+document.getElementById('volver-index').addEventListener('click', () => {
+    window.location.href = '../index.html'; // Cambia a la página de inicio
+});
+
