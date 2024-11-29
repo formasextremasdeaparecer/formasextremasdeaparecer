@@ -2,11 +2,11 @@
 const tituloJuego = 'Encuadrar una multitud';
 const videos = [
     { src: '1. SOFIA CASARINO - ENCUADRAR UNA MULTITUD.mp4', realizador: 'Sofía Casarino' },
-    { src: '2. BRUNO ALVAREZ - ENCUADRAR UNA MULTITUD.mov', realizador: 'Bruno Alvarez' },
+    { src: '2. Bruno Alvarez - Encuadrar Una Multitud.mp4', realizador: 'Bruno Alvarez' },
     { src: '3. PATRICIO MARTINEZ - ENCUADRAR UNA MULTITUD.mp4', realizador: 'Patricio Martínez' },
-    { src: '4. JO CESPEDES - ENCUADRAR UNA MULTITUD.mp4', realizador: 'Jo Céspedes y Sofía Benito' },
+    { src: '4. Jo Cespedes - Encuadrar Una Multitud.mp4', realizador: 'Jo Céspedes y Sofía Benito' },
     { src: '5. ANÓNIMO 1 - ENCUADRAR UNA MULTITUD.MOV', realizador: 'Anónimo'},
-    { src: '6. Anónimo 2 - Encuadrar Una Multitud.mp4', realizador: 'Anónimo'}
+    { src: '6. Anónimo 2 - Encuadrar Una Multitud.mp4', realizador: 'Anónimo'},
 ];
 
 
@@ -24,7 +24,7 @@ document.getElementById('modo-hilo').addEventListener('click', () => {
         const videoElement = document.createElement('video');
         const textElement = document.createElement('p');
 
-        videoElement.src = `juego1/${video.src}`;
+        videoElement.src = `juego2/${video.src}`;
         videoElement.controls = true;
         videoElement.style.display = 'block';
         videoElement.style.width = '400px';
