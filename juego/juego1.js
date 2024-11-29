@@ -5,6 +5,8 @@ const videos = [
     { src: '2. BRUNO ALVAREZ - LA LLEGADA DEL TREN A LA CIUDAD.MP4', realizador: 'Bruno Alvarez' },
     { src: '3. PATRICIO MARTINEZ - LA LLEGADA DEL TREN A LA CIUDAD.mp4', realizador: 'Patricio Martínez' },
     { src: '4. JO CESPEDES Y SOFIA BENITO - LA LLEGADA DEL TREN A LA CIUDAD.mp4', realizador: 'Jo Céspedes y Sofía Benito' },
+    { src: '5. ANÓNIMO 1 - LA LLEGADA DEL TREN A LA CIUDAD.MOV', realizador: 'Anónimo'},
+    { src: '6. Anónimo 2 - La Llegada Del Tren A La Ciudad.mp4', realizador: 'Anónimo'}
 ];
 
 

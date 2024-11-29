@@ -1,10 +1,12 @@
 
-const tituloJuego = 'La llegada del tren a la ciudad';
+const tituloJuego = 'Encuadrar una multitud';
 const videos = [
-    { src: '1. SOFIA CASARINO - LA LLEGADA DEL TREN A LA CIUDAD.MOV', realizador: 'Sofía Casarino' },
-    { src: '2. BRUNO ALVAREZ - LA LLEGADA DEL TREN A LA CIUDAD.MP4', realizador: 'Bruno Alvarez' },
-    { src: '3. PATRICIO MARTINEZ - LA LLEGADA DEL TREN A LA CIUDAD.mp4', realizador: 'Patricio Martínez' },
-    { src: '4. JO CESPEDES Y SOFIA BENITO - LA LLEGADA DEL TREN A LA CIUDAD.mp4', realizador: 'Jo Céspedes y Sofía Benito' },
+    { src: '1. SOFIA CASARINO - ENCUADRAR UNA MULTITUD.mp4', realizador: 'Sofía Casarino' },
+    { src: '2. BRUNO ALVAREZ - ENCUADRAR UNA MULTITUD.mov', realizador: 'Bruno Alvarez' },
+    { src: '3. PATRICIO MARTINEZ - ENCUADRAR UNA MULTITUD.mp4', realizador: 'Patricio Martínez' },
+    { src: '4. JO CESPEDES - ENCUADRAR UNA MULTITUD.mp4', realizador: 'Jo Céspedes y Sofía Benito' },
+    { src: '5. ANÓNIMO 1 - ENCUADRAR UNA MULTITUD.MOV', realizador: 'Anónimo'},
+    { src: '6. Anónimo 2 - Encuadrar Una Multitud.mp4', realizador: 'Anónimo'}
 ];
 
 
